@@ -9,7 +9,6 @@ class LDR_Webserver:
         self.d1 = write_to_db.Database("SMARTHOME/LUX", "pidevin.local")
         self.host = "localhost"
         self.port = 8080
-        self.luxTable = []
         self.routes()
 
     def start_server(self):
