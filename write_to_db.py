@@ -13,7 +13,7 @@ class Database():
 
     def get_data(self):
         data = self.sub.get_single_message()
-        self.final_data = data.decode('ASCII')  # in normalen string convertieren
+        self.final_data = data.decode("ASCII")  # in normalen string convertieren
         current_time = datetime.datetime.now()
         self.final_time = current_time.strftime("%d/%m/%Y %H:%M:%S")  # in normales Datum umwandeln
 
