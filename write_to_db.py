@@ -34,15 +34,16 @@ class Database():
         file_csv.close()
 
 
-    def main(self):
+    def main(self, sleep):
         self.get_data()
         print(self.final_data, self.final_time)
         self.write_to_database("lux.db")
         self.write_to_csv()
+        time.sleep(sleep)
+
 
 if __name__ == "__main__":
     d1 = Database("SMARTHOME/LUX", "pidevin.local")
 
     while True:
-        d1.main()
-        time.sleep(60)
+        d1.main(60)
