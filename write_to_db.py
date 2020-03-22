@@ -4,6 +4,7 @@ import Subscriber
 import csv
 import time
 
+
 class Database():
 
     def __init__(self, topic, broker_ip):
@@ -16,7 +17,6 @@ class Database():
         self.final_data = data.decode("ASCII")  # in normalen string convertieren
         current_time = datetime.datetime.now()
         self.final_time = current_time.strftime("%d/%m/%Y %H:%M:%S")  # in normales Datum umwandeln
-
 
     def write_to_database(self, file):
         self.conn = sqlite3.connect(file, timeout=10)
@@ -33,17 +33,22 @@ class Database():
             writer.writerow(row)
         file_csv.close()
 
-
     def main(self, sleep):
-        self.get_data()
-        print(self.final_data, self.final_time)
-        self.write_to_database("lux.db")
-        self.write_to_csv()
-        time.sleep(sleep)
+        try:
+            self.get_data()
+        except:
+            print("Fehler beim empfangen der Daten")
+        try:
+            self.write_to_database("lux.db")
+            print("Daten wurden ind die Datenbank eingetragen: ", self.final_data, self.final_time)
+            self.write_to_csv()
+            time.sleep(sleep)
+        except:
+            print("Fehler beim eintragen der Daten in die Datenbank")
 
 
 if __name__ == "__main__":
     d1 = Database("SMARTHOME/LUX", "pidevin.local")
 
     while True:
-        d1.main(60)
+        d1.main(60) # Sek bis ein neuer Wert in die DB eingetragen wird

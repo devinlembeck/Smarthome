@@ -3,8 +3,8 @@
 
 
 
-<a href="/csv/output.csv" download>.csv</a>
-
+<a href="output.csv" download>.csv</a>
+<br>
 <br>
 <table border=1>
 <tr><th>Helligkeit(in Lux)</th><th>Datum</th></tr>
