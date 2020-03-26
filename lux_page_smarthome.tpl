@@ -1,9 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
 <title>Lux-Messungen</title>
+</head>
+<body>
 <h1>Lux-Messungen</h1>
-
-
-
-<a href="output.csv" download>.csv</a>
+<a class="button" href=/get_csv> <button>Export als .CSV</button></a>
+<a class="button" href=/get_json> <button>Export als .JSON</button></a>
 <br>
 <br>
 <table border=1>
@@ -16,3 +19,5 @@
     </tr>
 %end
 </table>
+</body>
+</html>
