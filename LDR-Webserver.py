@@ -1,6 +1,5 @@
 import bottle
 import sqlite3
-import write_to_db
 import os
 
 
