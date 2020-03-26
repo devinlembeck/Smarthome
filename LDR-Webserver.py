@@ -2,11 +2,12 @@ import bottle
 import sqlite3
 import write_to_db
 import os
+
+
 class LDR_Webserver:
 
-    def __init__(self, topic, broker_ip):
+    def __init__(self):
         self.server = bottle.Bottle()
-        self.d1 = write_to_db.Database(topic, broker_ip)
         self.host = "localhost"
         self.port = 8080
         self.routes()
@@ -36,5 +37,5 @@ class LDR_Webserver:
 
 
 if __name__ == "__main__":
-    s1 = LDR_Webserver("SMARTHOME/LUX", "pidevin.local")
+    s1 = LDR_Webserver()
     s1.start_server()
